@@ -1,0 +1,69 @@
+*{
+margin:0;
+padding: 0;
+}
+body{
+background: linear-gradient(90deg, rgba(233,233,240,1) 48%, rgba(227,241,241,1) 100%);
+}
+.login-title{
+background: rgb(255,93,0);
+background: radial-gradient(circle, rgba(255,93,0,1) 0%, rgba(255,51,0,1) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family: 'Acme', sans-serif;
+font-weight: bold;
+}
+#forgot{
+font-size: 14px;
+}
+.btn-grad {
+background: rgb(255,93,0);
+background: radial-gradient(circle, rgba(255,93,0,1) 0%, rgba(255,51,0,1) 100%);
+}
+.btn-grad {
+text-align: center;
+text-transform: uppercase;
+transition: 0.5s;
+background-size: 200% auto;
+color: white;
+box-shadow: 0 0 20px #eee;
+border-radius: 10px;
+font-weight: bold;
+}
+.btn-grad:hover {
+background-position: right center;
+color: #fff;
+text-decoration: none;
+}
+.main-div{
+height: auto;
+width: 70%;
+background: white;
+margin: auto;
+border-radius: 20px;
+margin-top: 70px;
+margin-bottom: 70px;
+}
+.nav-heading{
+position:absolute;
+left:45%;
+}
+#invalid{
+color: red;
+font-size: 14px;
+}
+input[type=text], input[type=password], input[type=file], input[type=email], input[type=date], input[type=number], select,textarea {
+border: 1px solid  rgb(230,181,0); !important;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=file]:focus, input[type=date]:focus, option:focus, input[type=number]:focus,textarea:focus, select:focus {
+border: 1px solid  rgb(230,181,0); !important;
+box-shadow: 0px 0px 8px rgb(230,181,0);  !important;
+}
+@media screen and (max-width:770px) {
+.main-div{
+width: 80%!important;
+}
+.main-div h1{
+font-size: 25px  ;
+}
+}
