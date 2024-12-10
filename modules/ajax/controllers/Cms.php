@@ -364,6 +364,9 @@ class Cms extends Ajax_Controller
     function list_testimonial(){
         $this->response('data',$this->db->order_by('id','DESC')->get('testimonial')->result_array());
     }
+    function delete_testimonial($id){
+        $this->response('status',$this->db->where('id',$id)->delete('testimonial'));
+    }
     function status_testimonial(){
         $this->response('status',$this->db->where('id',$this->post('id'))->update('testimonial',[
             'status' => $this->post("status")
@@ -371,6 +374,9 @@ class Cms extends Ajax_Controller
     }
     function list_post(){
         $this->response('data',$this->db->order_by('id','DESC')->get('posts')->result_array());
+    }
+    function delete_post($id){
+        $this->response('status',$this->db->where('id',$id)->delete('posts'));
     }
     function add_post(){
         if ($file = $this->file_up('image')) {
