@@ -669,7 +669,9 @@
         font-size: 12px;
         margin-left: 8px;
     }
-
+    .head_item2 {
+        width:100%;
+    }
     .similar_link {
         cursor: pointer;
     }
