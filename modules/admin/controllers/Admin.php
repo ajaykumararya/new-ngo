@@ -85,4 +85,8 @@ class Admin extends MY_Controller
         $this->view('testimonial/list');
 
     }
+    function logout(){
+        $this->session->sess_destroy();
+        redirect('admin');
+    }
 }

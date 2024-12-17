@@ -660,6 +660,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js">
 </script>
 <style media="screen">
+    html{
+        overflow-x:hidden
+    }
     .bname span {
         font-weight: bold;
         font-size: 12px;
@@ -1853,9 +1856,9 @@
         </div>
     </footer>
 </div>
-<div class="footer_last">
+<!-- <div class="footer_last">
     <p>Website Designed By - <a href="https://fragron.com/"> Fragron Infotech, Mob. - 7000131032</a></p>
-</div>
+</div> -->
 <script src="{theme_url}assets/app4df8.js?v=1733218896"></script>
 <script>
     function myFunction() {

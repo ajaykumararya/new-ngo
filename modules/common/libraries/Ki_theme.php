@@ -1046,7 +1046,7 @@ class Ki_theme
             }
             $html .= '</a>';
             if (isset($menuItem['submenu'])) {
-                $html .= '<div class="dropdown-menu" id="' . $id . '">';
+                $html .= '<div class="dropdown-menu '.($menuItemActive ? 'show' : '').'" id="' . $id . '">';
                 $html .= '<div class="dropdown-menu-columns"><div class="dropdown-menu-column">';
                 $html .= $this->generateMenu($menuItem['submenu'], 'submenu', $menuType);
                 $html .= '</div></div></div>';
