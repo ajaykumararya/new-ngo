@@ -660,9 +660,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js">
 </script>
 <style media="screen">
-    html{
-        overflow-x:hidden
+    html {
+        overflow-x: hidden
     }
+
     .bname span {
         font-weight: bold;
         font-size: 12px;
@@ -1199,10 +1200,10 @@
         <div class="nav_heading">
             <h3>{title}</h3>
         </div>
-        <div id="mySidenav" class="sidenav">
+        <div id="mySidenav" class="sidenav" style="padding-top:0">
             <a href="javascript:void(0)" id="close-btn" class="closebtn menu" onclick="closeNav()"><i
                     class="fa fa-times" aria-hidden="true"></i></a>
-            <div class="sidenav_home"><a href="{base_url}"><img src="{assets}{logo}"></a></div>
+            <div class="sidenav_home"><a href="{base_url}"><img style="width:130px" src="{assets}{logo}"></a></div>
             <?php
             $pageCount = 0;
             function get_menu2($items, $class = '', $liClass = '', $linkClass = '', $boxID = '', $attr = '')
@@ -1759,15 +1760,14 @@
 
                             </div>
                         </div>
-                        <span STYLE='COLOR:#FFF;'> Main Bazar Bhaba Nagar, Tehsil Nichar District Kinnaur (H.P.) -
-                            172115</span>
+                        <span STYLE='COLOR:#FFF;'> {address}</span>
                     </div>
                     <div class="col-xl-4 col-md-4 mb-3">
                         <div class="single-cta">
 
                             <div class="cta-text">
                                 <h4> <i class="fa fa-phone "></i> &nbsp;Call us</h4>
-                                <span>011-69290719</span>
+                                <span>{number}</span>
                             </div>
                         </div>
                     </div>
@@ -1776,7 +1776,7 @@
 
                             <div class="cta-text">
                                 <h4> <i class="fa fa-envelope "></i> &nbsp;Email </h4>
-                                <span>info@swarnimhimachal24.in</span>
+                                <span>{email}</span>
                             </div>
                         </div>
                     </div>
@@ -1793,14 +1793,12 @@
 
                             <div class="footer-social-icon">
                                 <span>Follow us</span>
-                                <a href="https://www.facebook.com/Dr.Kulddep?mibextid=ZbWKwL" target="_blank"><i
-                                        class="fa fa-facebook-f facebook-bg"></i></a>
-                                <a href="https://twitter.com/" target="_blank"><i
-                                        class="fa fa-twitter twitter-bg"></i></a>
-                                <a href="https://www.instagram.com/" target="_blank"><i
-                                        class="fa fa-instagram google-bg"></i></a>
-                                <a href="https://www.youtube.com/@swarnimhimachal6408" target="_blank"><i
-                                        class="fa fa-youtube google-bg"></i></a>
+                                <a href="{facebook}" class="" target="_blank"><i class="fa fab fa-facebook facebook-bg"></i></a>
+                                <a href="{twitter}" class="" target="_blank"><i class="fa fab fa-twitter twitter-bg"></i></a>
+                                <a href="{youtube}" class=""><i class="fa fab fa-youtube google-bg"></i></a>
+                                <a href="{linkedin}" class=""><i class="fa fab fa-linkedin twitter-bg"></i></a>
+                                <a href="{instagram}" class=""><i class="fa fab fa-instagram google-bg"></i></a>
+
                             </div>
                         </div>
                     </div>
@@ -1843,12 +1841,12 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                         <div class="footer-menu">
-                            <ul>
+                            <!-- <ul>
                                 <li><a href="term_condition.html">Terms & Condition</a></li>
                                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
                                 <li><a href="disclaimer.html">Disclaimer</a></li>
                                 <li><a href="refund_policy.html">Refund Policy</a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>
