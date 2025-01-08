@@ -68,7 +68,7 @@
         {name}</p>
     <p class="position-absolute  text-center"
         style="top:51%;left:13%;width:73%;color:red;font-size:2rem;margin:0;font-weight:500!important">
-        {firm_name}</p>
+        M/S {firm_name}</p>
 
     <p class="position-absolute  text-center"
         style="line-height:1;top:59%;left:13%;width:75%;color:red;margin:0;font-weight:500!important;font-size:1.3rem">
