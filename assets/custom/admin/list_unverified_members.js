@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         columns: [
             { 'data': 'id' },
+            { 'data': 'profile_img' },
             { 'data': 'name' },
             { 'data': 'mobile' },
             { 'data': 'DISTRICT_NAME' },
@@ -23,8 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
             render: function (data, type, row, meta) {
                 return data;
             }
+        },
+
+        {
+            targets: 1,
+            render: function (data, type, row, meta) {
+                return `<img src="${base_url}upload/${data}" width="50" height="50">`;
+            }
         }, {
-            targets: 4,
+            targets: 5,
             render: function (dateTime) {
                 var datePart = dateTime.split(' ')[0];
                 var [year, month, day] = datePart.split('-');
@@ -32,37 +40,37 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            targets : -1,
-            orderable : false,
-            searchable : false,
-            render : function(data,type,row){
+            targets: -1,
+            orderable: false,
+            searchable: false,
+            render: function (data, type, row) {
                 return `
                     <button data-id="${row.id}" class="btn btn-xs btn-sm btn-info approv-btn">
                         <i class="fa fa-check"></i> 
                         Approve</button>
 
-                    ${deleteBtnRender(1,row.id)}
+                    ${deleteBtnRender(1, row.id)}
                 `;
             }
         }]
-    }).on('draw',function(){
+    }).on('draw', function () {
         handleDeleteRows('member/delete-member');
-        table.find('.approv-btn').on('click',function(){
+        table.find('.approv-btn').on('click', function () {
             var id = $(this).data('id');
             // alert(id);   
-            SwalWarning('Confirmation!','Are you sure move to verified list this memeber',true,'Approve & Move').then( (res) => {
-                if(res.isConfirmed){
+            SwalWarning('Confirmation!', 'Are you sure move to verified list this memeber', true, 'Approve & Move').then((res) => {
+                if (res.isConfirmed) {
                     // alert(id);
                     $.AryaAjax({
-                        url : 'member/approve',
-                        data : {id}
-                    }).then( (d) => {
-                        SwalSuccess('Success','Moved in Verified List..');
+                        url: 'member/approve',
+                        data: { id }
+                    }).then((d) => {
+                        SwalSuccess('Success', 'Moved in Verified List..');
                         // table.ajax.reload();
                         $(table).DataTable().ajax.reload();
                     });
                 }
-            })         
+            })
         })
     });
 })

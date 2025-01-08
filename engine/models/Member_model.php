@@ -3,6 +3,7 @@ class Member_model extends MY_Model
 {
     function get_switch($case = 'all', $condition = [], $withCenter = true)
     {
+        extract($condition);
         $this->db->select('m.*,
             district.DISTRICT_NAME')
             ->from('members as m')
@@ -12,6 +13,10 @@ class Member_model extends MY_Model
         switch ($case) {
             case 'verified':
                 $this->db->where('m.status!=', 0);
+                break;
+            case 'get_verified_member':
+                $this->db->where('m.status', 1);
+                $this->db->where('m.id',$id);
                 break;
             case 'unverified':
                 $this->db->where('m.status', 0);
@@ -26,6 +31,9 @@ class Member_model extends MY_Model
     function verified_list()
     {
         return $this->get_switch('verified');
+    }
+    function get_verified_member($where = []){
+        return $this->get_switch('get_verified_member',$where);
     }
 }
 ?>

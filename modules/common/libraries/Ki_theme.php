@@ -438,7 +438,7 @@ class Ki_theme
             'title' => $title
         ])
             ->with_icon('cog', 5)->with_pulse('dark')
-            ->set_class('advanced-set-page btn btn-outline  btn-outline-dark btn-active-light-dark');
+            ->set_class('advanced-set-page btn btn-outline  btn-outline-primary btn-active-primary');
         return $this->button('');
     }
     function _attributes_to_string($attributes)

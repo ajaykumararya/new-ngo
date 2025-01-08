@@ -186,7 +186,7 @@
         function loadTable() {
             $.AryaAjax({
                 url: "website/ajax-timeline-load",
-                loading_message : false
+                loading_message: false
             }).then((res) => {
                 log(res)
                 if (res.status)
@@ -229,48 +229,25 @@
         <div class='mian_div_member'>
             <div id="container1" class="container">
                 <div class="gallery" id="gallery1">
-                    <div class="card">
-                        <!-- <h2 class="card__title">Member</h2> -->
-                        <p class="card__description">
-                            <img src="userimg/WhatsApp%20Image%202024-08-16%20at%2023.52.38_08162024235302.jpg"
-                                alt="Paris" width="150px" height="180px">
-                        </p>
-                        <a href="#" class="card__name">PANKAJ</a>
-                        <a href="#" class="card__name">(Social Worker)</a>
-                    </div>
-                    <div class="card">
-                        <!-- <h2 class="card__title">Member</h2> -->
-                        <p class="card__description">
-                            <img src="userimg/PHOTO_08162024234423.jpg" alt="Paris" width="150px" height="180px">
-                        </p>
-                        <a href="#" class="card__name">SANJEEV KUMAR</a>
-                        <a href="#" class="card__name">(Social Worker)</a>
-                    </div>
-                    <div class="card">
-                        <!-- <h2 class="card__title">Member</h2> -->
-                        <p class="card__description">
-                            <img src="userimg/PHOTO_08162024234051.jpg" alt="Paris" width="150px" height="180px">
-                        </p>
-                        <a href="#" class="card__name">RANJIT SINGH</a>
-                        <a href="#" class="card__name">(Social Worker)</a>
-                    </div>
-                    <div class="card">
-                        <!-- <h2 class="card__title">Member</h2> -->
-                        <p class="card__description">
-                            <img src="userimg/PHOTO_08162024233517.jpg" alt="Paris" width="150px" height="180px">
-                        </p>
-                        <a href="#" class="card__name">SANDEEP KUMAR</a>
-                        <a href="#" class="card__name">(Social Worker)</a>
-                    </div>
-                    <div class="card">
-                        <!-- <h2 class="card__title">Member</h2> -->
-                        <p class="card__description">
-                            <img src="userimg/WhatsApp%20Image%202024-06-21%20at%208.05.31%20PM_06222024185754.jpg"
-                                alt="Paris" width="150px" height="180px">
-                        </p>
-                        <a href="#" class="card__name">Babli Sharma</a>
-                        <a href="#" class="card__name">(District Executive Chairman, UNA)</a>
-                    </div>
+                    <?php
+                    $listMembers = $this->member_model->verified_list();
+                    if ($listMembers->num_rows()):
+                        foreach ($listMembers->result() as $member) {
+                            ?>
+                            <div class="card">
+                                <!-- <h2 class="card__title">Member</h2> -->
+                                <p class="card__description">
+                                    <img src="{base_url}upload/<?= $member->profile_img ?>" alt="<?= $member->name ?>" width="150px"
+                                        height="180px">
+                                </p>
+                                <a href="#" class="card__name"><?= $member->name ?></a>
+                                <a href="#" class="card__name">(<?= $member->authority ?>)</a>
+                            </div>
+                            <?php
+                        }
+                    endif;
+                    ?>
+
                     <a href="#" class="card__name">View More</a>
                 </div>
                 <span class="btn prev1"></span>

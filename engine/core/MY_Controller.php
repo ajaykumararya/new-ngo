@@ -348,6 +348,7 @@ class Site_Controller extends MY_Controller
     function __construct()
     {
         parent::__construct();
+        $this->load->model('member_model');
         $this->set_data('link_css', $this->parse('_common/head', [], true));
         $this->set_data('YEAR', date('Y'));
         $this->set_data('copyright', ' All right reserved designed by

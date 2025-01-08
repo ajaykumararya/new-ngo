@@ -6,6 +6,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>USER ID</th>
+                            <th>IMAGE</th>
                             <th>NAME</th>
                             <th>MOBILE NO.</th>
                             <th>CITY</th>

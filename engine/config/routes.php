@@ -55,7 +55,7 @@ if(!in_array(strtolower( $this->uri->segment(1,'a') ),[
 $route['student'] = 'student/index';
 $route['admin'] = $route['Admin'] = 'admin/index';
 $route['admit-card/(:any)'] = 'document/admit_card';
-$route['marksheet/(:any)'] = 'document/marksheet';
+$route['print-membership/(:any)'] = 'document/print_membership/$1';
 $route['certificate/(:any)'] = 'document/certificate';
 $route['id-card/(:any)'] = 'document/id_card';
 $route['franchise-certificate/(:any)'] = 'document/franchise_certificate';
