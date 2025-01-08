@@ -1894,7 +1894,7 @@
                     <div class="col-xl-4 col-lg-4 mb-50">
                         <div class="footer-widget my-3">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="webimg/logo_04142023112146.png" class="img-fluid"
+                                <a href="{base_url}"><img src="<?=logo()?>" class="img-fluid"
                                         alt="logo"></a>
                             </div>
 
@@ -1944,8 +1944,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                         <div class="copyright-text">
-                            <p>Copyright &copy; 2023, All Right Reserved <a href="#">स्वर्णिम हिमाचल जन जागरण समिति -
-                                    हिमाचल प्रदेश </a></p>
+                            <p>Copyright &copy; 2023, All Right Reserved <a href="#">{title}</a></p>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
