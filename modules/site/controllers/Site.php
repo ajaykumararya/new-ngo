@@ -104,4 +104,10 @@ class Site extends Site_Controller
         } else
             $this->error_404();
     }
+
+    function test(){
+        $this->load->model('member_model');
+        echo $this->member_model->unverified_list()->num_rows();
+        echo $this->db->last_query();
+    }
 }

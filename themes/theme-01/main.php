@@ -1,4 +1,7 @@
 >
+<div class="preview">
+</div>
+<div class="loader loader-double"></div>
 <style>
     .position-logo.row {
         row-gap: 20px;
@@ -664,14 +667,115 @@
         overflow-x: hidden
     }
 
+    .select2-container .select2-selection--single {
+        height: 36px !important
+    }
+
+    .image_div_col label i {
+        color: gray;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=file]:focus,
+    input[type=date]:focus,
+    option:focus,
+    input[type=number]:focus,
+    textarea:focus,
+    select:focus,
+    .select2-container--below.select2-container--open,
+    .select2-dropdown.select2-dropdown--below {
+        border: 1px solid #DF2800 !important;
+        box-shadow: 0px 0px 8px rgb(226, 176, 0) !important;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=file],
+    input[type=email],
+    input[type=date],
+    input[type=number],
+    select,
+    textarea {
+        border: 1px solid rgb(226, 176, 0) !important;
+    }
+
+    .line-all {
+        width: 101%;
+        height: 2px;
+        margin-bottom: 20px;
+        margin-top: 8px;
+        background: rgb(255, 93, 0);
+        background: radial-gradient(circle, rgba(255, 93, 0, 1) 0%, rgba(255, 51, 0, 1) 100%);
+    }
+
+    #red {
+        color: red
+    }
+
+    .image_div_col label {
+        position: absolute;
+        font-size: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        right: 30px;
+    }
+
+    .image_div_col img {
+        position: absolute;
+        height: 90%;
+        /* width: 100%; */
+        top: 50%;
+        transform: translateY(-50%);
+        left: 30px;
+    }
+
+    .image_div_col {
+        position: relative;
+        /* border: 1px solid red; */
+        border-radius: 10px;
+    }
+
+    .btn-grad {
+        background: rgb(255, 93, 0);
+        background: radial-gradient(circle, rgba(255, 93, 0, 1) 0%, rgba(255, 51, 0, 1) 100%);
+    }
+
+    .image_preview_div {
+        border: 2px solid gray;
+        height: 100% !important;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 14px;
+        color: rgb(51, 51, 51) !important;
+    }
+
+    .btn-grad {
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+    }
+
     .bname span {
         font-weight: bold;
         font-size: 12px;
         margin-left: 8px;
     }
+
     .head_item2 {
-        width:100%;
+        width: 100%;
     }
+
     .similar_link {
         cursor: pointer;
     }
@@ -938,6 +1042,7 @@
             z-index: 111;
         }
 
+        .bg-theme,
         .nav-bar,
         .card1,
         .right-div-p,
@@ -1795,8 +1900,10 @@
 
                             <div class="footer-social-icon">
                                 <span>Follow us</span>
-                                <a href="{facebook}" class="" target="_blank"><i class="fa fab fa-facebook facebook-bg"></i></a>
-                                <a href="{twitter}" class="" target="_blank"><i class="fa fab fa-twitter twitter-bg"></i></a>
+                                <a href="{facebook}" class="" target="_blank"><i
+                                        class="fa fab fa-facebook facebook-bg"></i></a>
+                                <a href="{twitter}" class="" target="_blank"><i
+                                        class="fa fab fa-twitter twitter-bg"></i></a>
                                 <a href="{youtube}" class=""><i class="fa fab fa-youtube google-bg"></i></a>
                                 <a href="{linkedin}" class=""><i class="fa fab fa-linkedin twitter-bg"></i></a>
                                 <a href="{instagram}" class=""><i class="fa fab fa-instagram google-bg"></i></a>
@@ -1875,35 +1982,37 @@
             moreText.style.display = "inline";
         }
     };
-
-    function loadTable() {
-        $.ajax({
-            url: "ajax/ajax-timeline-load.php",
-            type: "POST",
-            success: function (data) {
-                $('.timeline_data').html(data);
-            }
-        });
-    };
-    loadTable();
-    $(document).on("click", ".delete_cmt", function (e) {
-        var id = $(this).attr('data-cmt_id');
-        var conf = confirm('Do you want to delete this comment?');
-        if (conf == true) {
+    /*
+        function loadTable() {
             $.ajax({
-                url: "ajax/delete_comment.php",
-                type: 'post',
-                data: {
-                    id: id
-                },
+                url: "ajax/ajax-timeline-load.php",
+                type: "POST",
                 success: function (data) {
-                    if (data == 1) {
-                        loadTable();
-                    }
+                    $('.timeline_data').html(data);
                 }
             });
-        }
-    });
+        };
+        loadTable();
+        $(document).on("click", ".delete_cmt", function (e) {
+            var id = $(this).attr('data-cmt_id');
+            var conf = confirm('Do you want to delete this comment?');
+            if (conf == true) {
+                $.ajax({
+                    url: "ajax/delete_comment.php",
+                    type: 'post',
+                    data: {
+                        id: id
+                    },
+                    success: function (data) {
+                        if (data == 1) {
+                            loadTable();
+                        }
+                    }
+                });
+            }
+        });
+    */
+
     $('#searchbox').on('input', function () {
         var search_val = $(this).val()
         $.ajax({

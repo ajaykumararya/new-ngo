@@ -6,8 +6,40 @@ class Website extends Ajax_Controller
     {
         $this->_update_profile('students');
     }
-    function upload_gallery_image(){
-        $this->response('data',$_FILES);
+    function membership_form()
+    {
+        if ($this->validation('membership_form')) {
+            // $this->response('status','hii');
+            $profile_photo = $this->file_up('profile','');
+            $doc_file = $this->file_up('doc_file','');
+            $other_doc = $this->file_up('other_doc','');
+            $data = [
+                'name' => $this->post('name'),
+                'father_name' => $this->post('father_name'),
+                'gender' => $this->post('gender'),
+                'dob' => $this->post('dob'),
+                'profession' => $this->post("profession"),
+                'blood_group' => $this->post('blood_group'),
+                'state_id' => $this->post('state_id'),
+                'city_id' => $this->post('city_id'),
+                'mobile' => $this->post("mobile"),
+                'aadhar_no' => $this->post('aadhar_no'),
+                'address' => $this->post('address'),
+                'pincode' => $this->post('pincode'),
+                'email' => $this->post('email'),
+                'profile_img' => $profile_photo,
+                'doc_type' => $this->post('doc_type'),
+                'doc_file' => $doc_file,
+                'other_doc' => $other_doc
+            ];
+            $this->db->insert('members', $data);
+            $this->response('status', true);
+            $this->response('member_id', $this->db->insert_id());
+        }
+    }
+    function upload_gallery_image()
+    {
+        $this->response('data', $_FILES);
     }
 
     // Optional function to assign different colors for attendance status
@@ -37,7 +69,7 @@ class Website extends Ajax_Controller
             ]);
         }
     }
-    
+
     function get_city($type = 'array')
     {
         $state_id = $this->input->post('state_id');
@@ -73,9 +105,10 @@ class Website extends Ajax_Controller
             $this->db->where('id', $this->post('id'))->update('contact_us_action', ['admin_message' => $this->post('value')])
         );
     }
-    function ajax_timeline_load(){
-        $this->response('status',true);
-        $this->response('data',$this->parse('ajax/list-post',[],true));
+    function ajax_timeline_load()
+    {
+        $this->response('status', true);
+        $this->response('data', $this->parse('ajax/list-post', [], true));
     }
 }
 ?>

@@ -1,5 +1,81 @@
-$(document).on('ready', function () {
+$(document).ready(function () {
+    function preview() {
+        $('.preview').html(
+            `
+		<style>
+		.image_preview{
+		 position: fixed;
+		 top: 50%;
+		 left: 50%;
+		 transform:translate(-50%,-50%);
+		 height: 500px;
+		 width: 360px;
+		 background: #fff;
+		 box-shadow: 0px 0px 5px 1px lightgray;
+		 border-radius: 10px;
+		 z-index: 999;
+		 overflow: hidden;
+		 display: none;
+	 }
+	 .image_preview div{
+		 height: 100%;
+		 width: 100%;
+		 position: relative;
 
+	 }
+	 .image_preview img{
+		 width: 90%;
+		 height: auto;
+		 position: absolute;
+		 top: 50%;
+		 left: 50%;
+		 transform:translate(-50%,-50%);
+		 z-index: 999999999;
+	 }
+	 .image_preview p{
+		 padding: 10px;
+		 background: #e62e25;
+		 text-align: center;
+		 color: #fff;
+		 font-size: 20px;
+		 transition: .3s;
+		 cursor: pointer;
+	 }
+	 img{
+		 cursor: pointer;
+	 }
+	 .image_preview p:hover{
+		 background: #e8524a;
+		 transition: .3s;
+	 }
+		</style>
+		<div class="image_preview">
+		 <div class="">
+			 <p id="preview_cancel">Cancel</p>
+			 <img src="complain_img/Screenshot (2)_0412022140228.png" alt="">
+		 </div>
+	 </div>
+		`
+        );
+        $(document).on('click', 'img', function () {
+            var src = $(this).attr('src');
+            $('.image_preview img').attr('src', src);
+            $('.image_preview').css('display', 'block');
+        })
+        $(document).on('click', '#preview_cancel', function () {
+            $('.image_preview').css('display', 'none');
+        })
+    }
+    preview();
+    $(document).on('change', 'input[type=file]', function (event) {
+        var id = $(this).attr('data-id');
+        var img = document.getElementById(`${id}`);
+        var reader = new FileReader();
+        reader.onload = function () {
+            img.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    })
     //log($('.student-verification-form'));
     $(document).on('submit', '.student-verification-form', function (e) {
         var box = $(this).closest('section').find('.show-student-details');
@@ -74,15 +150,19 @@ $(document).on('ready', function () {
         e.preventDefault();
         window.print();
     })
-    $(document).on('submit', '.student-admission-form', function (e) {
+    // alert(4);
+    // alert($(document).find('.membership-form').length);
+    $(document).on('submit', '.membership-form', function (e) {
         e.preventDefault();
+        // alert(3);
         $.AryaAjax({
-            url: 'website/student-admission',
+            url: 'website/membership-form',
             data: new FormData(this),
         }).then((r) => {
+            // log(r);
             if (r.status) {
-                mySwal('Admission Successfully..', `
-                    Your Roll No. is <b>${r.roll_no}</b>
+                mySwal('Member added Successfully..', `
+                    Your member ID is <b>${r.member_id}</b>
                 `).then((res) => {
                     if (res.isConfirmed) {
                         location.reload();

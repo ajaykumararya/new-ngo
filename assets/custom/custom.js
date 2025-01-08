@@ -1248,6 +1248,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
         }).then((response) => {
             $('.form-group-city > select').html(response.html);
             $('#load').html('<i class="text-success"> Complete <i class="fa fa-check-circle"></i></i>');
+            setTimeout(function(){
+                $('#load').html('');
+            },2000)
         });
     });
 });

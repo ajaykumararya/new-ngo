@@ -24,9 +24,16 @@
         @import url('https://rsms.me/inter/inter.css');
 
         :root {
+            /* --bs-body-bg : #1c375a;
+            --bs-gray-400 : darkgray;
+            --bs-gray-700 : lightgray;
+            --bs-gray-600 : lightgray;
+            --bs-gray-800:white; */
             --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
         }
-
+        .flatpickr-months .flatpickr-next-month, .flatpickr-months .flatpickr-prev-month {
+            color:white!important
+        }
         body {
             font-feature-settings: "cv03", "cv04", "cv11";
         }
@@ -84,6 +91,8 @@
 </head>
 
 <body>
+<div class="preview">
+</div>
     <script src="{base_url}assets/dist/js/demo-theme.min.js?1684106062"></script>
     <div class="page">
         <!-- Sidebar -->

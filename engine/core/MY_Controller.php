@@ -120,7 +120,7 @@ class MY_Controller extends MX_Controller
     {
         return $this->ki_theme->decrypt($id);
     }
-    function file_up($file)
+    function file_up($file,$return = false)
     {
         if (!empty($_FILES[$file]['name'])) {
             $filename = $_FILES[$file]['name'];
@@ -139,7 +139,7 @@ class MY_Controller extends MX_Controller
             } else
                 $this->response('error', $this->upload->display_errors());
         }
-        return false;
+        return $return;
     }
     function chunkUpload($folder_name = false)
     {

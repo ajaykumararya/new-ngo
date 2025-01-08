@@ -85,6 +85,19 @@ class Admin extends MY_Controller
         $this->view('testimonial/list');
 
     }
+    function list_members(){
+        $this->ki_theme->breadcrumb_action_html($this->ki_theme->drawer_button('form','member_apply_form',humanize('Set Member Apply')));
+        $this->view('member/list-members');
+    }
+    function list_unverified_members(){
+        $this->view('member/list-unverified-members');
+    }
+    function edit_member(){
+        $this->access_method();
+        $this->ki_theme->breadcrumb_action_html($this->ki_theme->back_button('admin/list-members','Go to List','list'));
+
+        $this->view('member/edit-member');
+    }
     function logout(){
         $this->session->sess_destroy();
         redirect('admin');

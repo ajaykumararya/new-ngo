@@ -10,6 +10,25 @@ $config['cms_setting'] = array(
     'condition' => OnlyForAdmin(),
     'menu' => array(
         array(
+            'label' => 'Member Section',
+            'type' => 'member_area',
+            'icon' => array('users', 3),
+            'submenu' => array(
+                array(
+                    'label' => 'List Member(s)',
+                    'type' => 'list_members',
+                    'icon' => array('plus', 4),
+                    'url' => 'admin/list-members',
+                ),
+                array(
+                    'label' => 'List Unverified Member(s)',
+                    'type' => 'list_unverified_members',
+                    'icon' => array('list', 4),
+                    'url' => 'admin/list-unverified-members',
+                )
+            )
+        ),
+        array(
             'label' => 'Setting',
             'type' => 'cms_setting',
             'icon' => array('cog', 4),
