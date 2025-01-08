@@ -15,6 +15,11 @@ $config = array(
             'label' => 'Date of Birth',
             'field' => 'dob',
             'rules' => 'required'
+        ),        
+        array(
+            'label' => 'Shop Name / Firm Name',
+            'field' => 'firm_name',
+            'rules' => 'required'
         ),
         array(
             'label' => 'Father Name',
@@ -84,6 +89,11 @@ $config = array(
         array(
             'label' => 'Profession',
             'field' => 'profession',
+            'rules' => 'required'
+        ),
+        array(
+            'label' => 'Shop Name / Firm Name',
+            'field' => 'firm_name',
             'rules' => 'required'
         ),
         array(

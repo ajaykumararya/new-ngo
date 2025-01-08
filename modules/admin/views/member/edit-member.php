@@ -71,7 +71,7 @@ try {
             <form action="" class="edit-member">
                 <div class="{card_class}">
                     <div class="card-body">
-                        <input type="hidden" name="userid" value="<?=base64_encode($row->id)?>">
+                        <input type="hidden" name="userid" value="<?= base64_encode($row->id) ?>">
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
@@ -160,14 +160,13 @@ try {
                                     <label for="">State<span id="red">*</span> :</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control get_city" name="state_id"
-                                        data-placeholder="Select a State">
+                                    <select class="form-control get_city" name="state_id" data-placeholder="Select a State">
                                         <option value="">--Select--</option>
                                         <?php
                                         $state = $this->db->order_by('STATE_NAME', 'ASC')->get('state');
                                         if ($state->num_rows()) {
                                             foreach ($state->result() as $drow)
-                                                echo '<option value="' . $drow->STATE_ID . '" '.($drow->STATE_ID == $row->state_id ? 'selected' : '').'>' . $drow->STATE_NAME . '</option>';
+                                                echo '<option value="' . $drow->STATE_ID . '" ' . ($drow->STATE_ID == $row->state_id ? 'selected' : '') . '>' . $drow->STATE_NAME . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -181,10 +180,10 @@ try {
                                         data-placeholder="Select a City">
                                         <option value="">--Select--</option>
                                         <?php
-                                        $getCities = $this->db->order_by('DISTRICT_NAME','ASC')->get('district');
-                                        if($getCities->num_rows()){
-                                            foreach($getCities->result() as $crow)
-                                                echo '<option value="'.$crow->DISTRICT_ID.'" '.($row->city_id == $crow->DISTRICT_ID ? 'selected' : '').'>'.$crow->DISTRICT_NAME.'</option>';
+                                        $getCities = $this->db->order_by('DISTRICT_NAME', 'ASC')->get('district');
+                                        if ($getCities->num_rows()) {
+                                            foreach ($getCities->result() as $crow)
+                                                echo '<option value="' . $crow->DISTRICT_ID . '" ' . ($row->city_id == $crow->DISTRICT_ID ? 'selected' : '') . '>' . $crow->DISTRICT_NAME . '</option>';
                                         }
                                         ?>
                                     </select>
@@ -199,14 +198,14 @@ try {
                                     <label for="">Mobile No.<span id="red">*</span>:</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" name="mobile" required="" value="<?=$row->mobile?>" class="form-control"
-                                        placeholder="Number">
+                                    <input type="text" name="mobile" required="" value="<?= $row->mobile ?>"
+                                        class="form-control" placeholder="Number">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Aadhar No.<span id="red">*</span>:</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" name="aadhar_no" value="<?=$row->aadhar_no?>" class="form-control"
+                                    <input type="text" name="aadhar_no" value="<?= $row->aadhar_no ?>" class="form-control"
                                         placeholder="Aadhar No.">
                                 </div>
                             </div>
@@ -219,14 +218,15 @@ try {
                                     <label for="">Pin Code<span id="red">*</span>:</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" name="pincode" value="<?=$row->pincode?>" class="form-control"
+                                    <input type="text" name="pincode" value="<?= $row->pincode ?>" class="form-control"
                                         placeholder="Pincode">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Email<span id="red"></span>:</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="email" name="email" value="<?=$row->email?>" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" value="<?= $row->email ?>" class="form-control"
+                                        placeholder="Email">
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,20 @@ try {
                                 </div>
                                 <div class="col-md-9">
                                     <textarea name="address" placeholder="Address"
-                                        class="form-control"><?=$row->address?></textarea>
+                                        class="form-control"><?= $row->address ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-all">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="">Shop Name / Firm Name<span id="red">*</span>:</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <textarea name="firm_name" required="" placeholder="Shop Name/ Firm Name"
+                                        class="form-control"><?=$row->firm_name?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -251,7 +264,7 @@ try {
                                     <label for="">Authority<span id="red">*</span>:</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" name="authority" value="<?=$row->authority?>" class="form-control"
+                                    <input type="text" name="authority" value="<?= $row->authority ?>" class="form-control"
                                         placeholder="Authority" required="">
                                 </div>
                             </div>
@@ -264,15 +277,15 @@ try {
                                     <label for="">Validity Start<span id="red">*</span> :</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="date" name="validity_start" value="<?=$row->validity_start?>" class="form-control"
-                                        required="">
+                                    <input type="date" name="validity_start" value="<?= $row->validity_start ?>"
+                                        class="form-control" required="">
                                 </div>
                                 <div class="col-md-3">
                                     <label for="">Validity End<span id="red">*</span> :</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="date" name="validity_end" value="<?=$row->validity_end?>" class="form-control"
-                                        required="">
+                                    <input type="date" name="validity_end" value="<?= $row->validity_end ?>"
+                                        class="form-control" required="">
                                 </div>
                             </div>
                         </div>
@@ -286,7 +299,7 @@ try {
 
                                 <div class="col-md-3 image_div_col">
                                     <div class="image_preview_div">
-                                        <img id="img1" src="{base_url}upload/<?=$row->profile_img?>" alt="">
+                                        <img id="img1" src="{base_url}upload/<?= $row->profile_img ?>" alt="">
                                         <label for="profile_img"><i class="fa fa-camera" aria-hidden="true"></i></label>
                                         <input type="file" id="profile_img" data-id="img1" style="visibility:hidden"
                                             accept=".png, .jpg, .jpeg" class="form-control-file border file1" name="image1">
@@ -304,19 +317,23 @@ try {
                                 <div class="col-md-3">
                                     <select class="form-control" name="doc_type" id="drop">
                                         <option value="">Select Your ID</option>
-                                        <option value="Aadhar Card" <?=$row->doc_type == 'Aadhar Card' ? 'selected' : ''?>>Aadhar Card</option>
-                                        <option value="PAN Card" <?=$row->doc_type == 'PAN Card' ? 'selected' : ''?>>PAN Card</option>
+                                        <option value="Aadhar Card" <?= $row->doc_type == 'Aadhar Card' ? 'selected' : '' ?>>
+                                            Aadhar Card</option>
+                                        <option value="PAN Card" <?= $row->doc_type == 'PAN Card' ? 'selected' : '' ?>>PAN Card
+                                        </option>
 
-                                        <option value="Voter Card" <?=$row->doc_type == 'Voter Card' ? 'selected' : ''?>>Voter Card</option>
-                                        <option value="Driving Licence" <?=$row->doc_type == 'Driving Licence' ? 'selected' : ''?>>Driving Licence</option>
-                                        <option value="Rashan Card" <?=$row->doc_type == 'Rashan Card' ? 'selected' : ''?>>Rashan Card</option>
-                                        <option value="Class 10th Marksheet" <?=$row->doc_type == 'Class 10th Marksheet' ? 'selected' : ''?>>Class 10th Marksheet</option>
+                                        <option value="Voter Card" <?= $row->doc_type == 'Voter Card' ? 'selected' : '' ?>>Voter
+                                            Card</option>
+                                        <option value="Driving Licence" <?= $row->doc_type == 'Driving Licence' ? 'selected' : '' ?>>Driving Licence</option>
+                                        <option value="Rashan Card" <?= $row->doc_type == 'Rashan Card' ? 'selected' : '' ?>>
+                                            Rashan Card</option>
+                                        <option value="Class 10th Marksheet" <?= $row->doc_type == 'Class 10th Marksheet' ? 'selected' : '' ?>>Class 10th Marksheet</option>
                                     </select>
                                 </div>
 
                                 <div class="col-md-3 image_div_col">
                                     <div class="image_preview_div">
-                                        <img id="img2" src="{base_url}upload/<?=$row->doc_file?>" alt="">
+                                        <img id="img2" src="{base_url}upload/<?= $row->doc_file ?>" alt="">
                                         <label for="aadhar"><i class="fa fa-camera" aria-hidden="true"></i></label>
                                         <input type="file" data-id="img2" id="aadhar" style="visibility:hidden"
                                             accept=".png, .jpg, .jpeg" class="form-control-file border file2"
@@ -331,7 +348,7 @@ try {
                                 </div>
                                 <div class="col-md-3 image_div_col">
                                     <div class="image_preview_div">
-                                        <img id="img3" src="{base_url}upload/<?=$row->other_doc?>" alt="">
+                                        <img id="img3" src="{base_url}upload/<?= $row->other_doc ?>" alt="">
                                         <label for="press_id"><i class="fa fa-camera" aria-hidden="true"></i></label>
                                         <input type="file" id="press_id" data-id="img3" style="visibility:hidden"
                                             accept="application/pdf,application/vnd.ms-excel,.png, .jpg, .jpeg .pdf"
@@ -344,60 +361,60 @@ try {
                                     function preview() {
                                         $('.preview').html(
                                             `
-                                                    <style>
-                                                    .image_preview{
-                                                     position: fixed;
-                                                     top: 50%;
-                                                     left: 50%;
-                                                     transform:translate(-50%,-50%);
-                                                     height: 500px;
-                                                     width: 360px;
-                                                     background: #fff;
-                                                     box-shadow: 0px 0px 5px 1px lightgray;
-                                                     border-radius: 10px;
-                                                     z-index: 999;
-                                                     overflow: hidden;
-                                                     display: none;
-                                                 }
-                                                 .image_preview div{
-                                                     height: 100%;
-                                                     width: 100%;
-                                                     position: relative;
+                                                        <style>
+                                                        .image_preview{
+                                                         position: fixed;
+                                                         top: 50%;
+                                                         left: 50%;
+                                                         transform:translate(-50%,-50%);
+                                                         height: 500px;
+                                                         width: 360px;
+                                                         background: #fff;
+                                                         box-shadow: 0px 0px 5px 1px lightgray;
+                                                         border-radius: 10px;
+                                                         z-index: 999;
+                                                         overflow: hidden;
+                                                         display: none;
+                                                     }
+                                                     .image_preview div{
+                                                         height: 100%;
+                                                         width: 100%;
+                                                         position: relative;
 
-                                                 }
-                                                 .image_preview img{
-                                                     width: 90%;
-                                                     height: auto;
-                                                     position: absolute;
-                                                     top: 50%;
-                                                     left: 50%;
-                                                     transform:translate(-50%,-50%);
-                                                     z-index: 999999999;
-                                                 }
-                                                 .image_preview p{
-                                                     padding: 10px;
-                                                     background: #e62e25;
-                                                     text-align: center;
-                                                     color: #fff;
-                                                     font-size: 20px;
-                                                     transition: .3s;
-                                                     cursor: pointer;
-                                                 }
-                                                 img{
-                                                     cursor: pointer;
-                                                 }
-                                                 .image_preview p:hover{
-                                                     background: #e8524a;
-                                                     transition: .3s;
-                                                 }
-                                                    </style>
-                                                    <div class="image_preview">
-                                                     <div class="">
-                                                         <p id="preview_cancel">Cancel</p>
-                                                         <img src="complain_img/Screenshot (2)_0412022140228.png" alt="">
+                                                     }
+                                                     .image_preview img{
+                                                         width: 90%;
+                                                         height: auto;
+                                                         position: absolute;
+                                                         top: 50%;
+                                                         left: 50%;
+                                                         transform:translate(-50%,-50%);
+                                                         z-index: 999999999;
+                                                     }
+                                                     .image_preview p{
+                                                         padding: 10px;
+                                                         background: #e62e25;
+                                                         text-align: center;
+                                                         color: #fff;
+                                                         font-size: 20px;
+                                                         transition: .3s;
+                                                         cursor: pointer;
+                                                     }
+                                                     img{
+                                                         cursor: pointer;
+                                                     }
+                                                     .image_preview p:hover{
+                                                         background: #e8524a;
+                                                         transition: .3s;
+                                                     }
+                                                        </style>
+                                                        <div class="image_preview">
+                                                         <div class="">
+                                                             <p id="preview_cancel">Cancel</p>
+                                                             <img src="complain_img/Screenshot (2)_0412022140228.png" alt="">
+                                                         </div>
                                                      </div>
-                                                 </div>
-                                                    `
+                                                        `
                                         );
                                         $(document).on('click', 'img', function () {
                                             var src = $(this).attr('src');

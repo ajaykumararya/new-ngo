@@ -53,7 +53,8 @@ class Member extends Ajax_Controller
                 'authority' => $this->post('authority'),
                 'doc_type' => $this->post('doc_type'),
                 'validity_start' => $this->post('validity_start'),
-                'validity_end' => $this->post('validity_end')
+                'validity_end' => $this->post('validity_end'),
+                'firm_name' => $this->post('firm_name')
             ];
             if ($profile_photo)
                 $data['profile_img'] = $profile_photo;

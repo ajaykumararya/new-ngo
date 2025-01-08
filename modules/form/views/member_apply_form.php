@@ -151,6 +151,19 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="line-all">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="">Shop Name / Firm Name<span id="red">*</span>:</label>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea name="firm_name" required="" placeholder="Shop Name/ Firm Name" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
                 <div class="line-all">
                 </div>
                 <div class="form-group">

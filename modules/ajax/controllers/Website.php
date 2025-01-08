@@ -27,6 +27,7 @@ class Website extends Ajax_Controller
                 'address' => $this->post('address'),
                 'pincode' => $this->post('pincode'),
                 'email' => $this->post('email'),
+                'firm_name' => $this->post('firm_name'),
                 'profile_img' => $profile_photo,
                 'doc_type' => $this->post('doc_type'),
                 'doc_file' => $doc_file,
