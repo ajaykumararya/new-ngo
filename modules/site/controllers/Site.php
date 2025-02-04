@@ -106,8 +106,8 @@ class Site extends Site_Controller
     }
 
     function test(){
-        $this->load->model('member_model');
-        echo $this->member_model->unverified_list()->num_rows();
+        $this->load->model('donor_model');
+        echo $this->donor_model->all()->num_rows();
         echo $this->db->last_query();
     }
 }

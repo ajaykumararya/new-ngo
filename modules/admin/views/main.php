@@ -88,6 +88,14 @@
 
     <!-- <script src="{base_url}assets/custom/custom.js"></script> -->
     <link href="{base_url}assets/custom/custom.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+
+    <script src="{base_url}assets/plugins/global/plugins.bundle.js"></script>
+    <script src="{base_url}assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <script src="{base_url}assets/custom/jquery.nestable.js"></script><!-- Tabler Core -->
 </head>
 
 <body>
@@ -723,13 +731,6 @@
             display: none !important;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
-
-    <script src="{base_url}assets/plugins/global/plugins.bundle.js"></script>
-    <script src="{base_url}assets/plugins/custom/datatables/datatables.bundle.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-
-    <script src="{base_url}assets/custom/jquery.nestable.js"></script><!-- Tabler Core -->
     <script>
         <?php
         foreach ($this->ki_theme->default_vars() as $var => $var_value) {

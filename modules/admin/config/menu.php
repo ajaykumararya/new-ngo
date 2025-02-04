@@ -111,12 +111,12 @@ $config['cms_setting'] = array(
                 ),
             )
         ),
-        // array(
-        //     'label' => 'Enquiry Data',
-        //     'type' => 'enquiry_data',
-        //     'icon' => array('file', 4),
-        //     'url' => 'cms/enquiry-data'
-        // ),
+        array(
+            'label' => 'Donor(s)',
+            'type' => 'donor',
+            'icon' => array('users', 4),
+            'url' => 'admin/donors-data'
+        ),
         /*
         array(
             'label' => 'Gallery',

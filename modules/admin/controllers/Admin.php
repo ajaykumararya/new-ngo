@@ -59,6 +59,17 @@ class Admin extends MY_Controller
             echo $r->getMessage();
         }*/
     }
+    function donors_data(){
+        $this->ki_theme->breadcrumb_action_html($this->ki_theme->outline_dashed_style('warning ')->add_action('<i class="fa fa-plus"></i> Add Donor','admin/add-donor'));
+        $this->view('donors/list');
+    }
+    function donor_receipt(){
+        $donorId = $this->uri->segment(3,0);
+        if($donorId){
+            $myid = base64_decode($donorId);
+            $this->view('donors/receipt',['isValid' => true,'donor' => $myid]);
+        }
+    }
     function manage_role_category()
     {
         $this->view('manage-role-category');

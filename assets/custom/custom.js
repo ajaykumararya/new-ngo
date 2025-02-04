@@ -1115,7 +1115,7 @@ const MyFormValidation = (form) => {
         }
     );
 }
-var handleDeleteRows = (url) => {
+var handleDeleteRows = (url,message = '') => {
     // Select all delete buttons
     var deferred = $.Deferred();
     const deleteButtons = document.querySelectorAll('[data-table-filter="delete_row"]');
