@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
         dom: small_dom,
         ajax: {
             url: `${ajax_url}donor/list`,
+            error : function(re){
+                console.log(re.responseText);
+            }
         },
         columns: [
             { 'data': 'photo' },
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
             render: function (data, type, row) {
                 return `
                 <div class="btn-group">
-                    <a href="${base_url}admin/donor-reciept/${btoa(row.id)}" target="_target" class="btn btn-xs btn-sm btn-primary">
+                    <a href="${base_url}admin/donor-receipt/${btoa(row.id)}" target="_target" class="btn btn-xs btn-sm btn-primary">
                         <i class="fa fa-file"></i> Reciepts
                     </a>    
                 

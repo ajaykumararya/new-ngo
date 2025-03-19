@@ -11,7 +11,7 @@
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Mobile</th>
-                            <th>pan</th>
+                            <th>PAN</th>
                             <th>City</th>
                             <th>Action</th>
                         </tr>

@@ -15,7 +15,7 @@ $config = array(
             'label' => 'Date of Birth',
             'field' => 'dob',
             'rules' => 'required'
-        ),        
+        ),
         array(
             'label' => 'Shop Name / Firm Name',
             'field' => 'firm_name',
@@ -126,5 +126,35 @@ $config = array(
             'field' => 'pincode',
             'rules' => 'required'
         )
-    )
+    ),
+    'adddonor' => [
+        array(
+            'label' => 'Name',
+            'field' => 'name',
+            'rules' => 'required'
+        ),
+        array(
+            'label' => 'Mobile',
+            'field' => 'mobile',
+            'rules' => 'required|is_unique[donor.mobile]',
+            'errors' => [
+                'is_unique' => 'This %s already Exists in account.'
+            ]
+        ),
+        array(
+            'label' => 'Pan',
+            'field' => 'pan',
+            'rules' => 'required'
+        ),
+        array(
+            'label' => 'State',
+            'field' => 'state_id',
+            'rules' => 'required'
+        ),
+        array(
+            'label' => 'District',
+            'field' => 'city_id',
+            'rules' => 'required'
+        ),
+    ]
 );

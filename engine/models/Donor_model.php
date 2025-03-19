@@ -5,12 +5,17 @@ class Donor_model extends MY_Model
     {
         extract($condition);
         $this->db->select('d.*,
-            district.DISTRICT_NAME')
+            district.DISTRICT_NAME,
+            COALESCE(SUM(dr.amount),0) as total_donate')
             ->from('donor as d')
             ->join('state', 'state.STATE_ID = d.state_id')
+            ->join('donor_receipts as dr' ,'dr.donor_id = d.id','left')
             ->join('district', 'district.DISTRICT_ID = d.city_id and district.STATE_ID = state.STATE_ID')
         ;
         switch ($case) {
+            case 'via_id':
+                $this->db->where('d.id', $id);
+                break;
             case 'verified':
                 $this->db->where('d.status!=', 0);
                 break;
@@ -39,6 +44,10 @@ class Donor_model extends MY_Model
     function get_verified_donor($where = [])
     {
         return $this->get_switch('get_verified_donor', $where);
+    }
+    function get_via_id($id)
+    {
+        return $this->get_switch('via_id', ['id' => $id]);
     }
 }
 ?>
