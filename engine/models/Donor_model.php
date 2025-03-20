@@ -10,6 +10,7 @@ class Donor_model extends MY_Model
             ->from('donor as d')
             ->join('state', 'state.STATE_ID = d.state_id')
             ->join('donor_receipts as dr' ,'dr.donor_id = d.id','left')
+            ->group_by('d.id')
             ->join('district', 'district.DISTRICT_ID = d.city_id and district.STATE_ID = state.STATE_ID')
         ;
         switch ($case) {

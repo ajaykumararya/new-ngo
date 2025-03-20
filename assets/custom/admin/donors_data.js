@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
             { 'data': 'mobile' },
             { 'data': 'pan' },
             { 'data': 'DISTRICT_NAME' },
+            { 'data': 'total_donate' },
+            { 'data' : 'status'},
             { 'data': null }
         ],
         columnDefs: [{
@@ -23,6 +25,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 // return data;
                 return `<img src="${base_url}upload/${data}" width="50" height="50">`;
 
+            }
+        },
+        {
+            targets : 5,
+            render: function (data, type, row, meta) {
+                return `${data} ${inr}`;
+            }
+        },        
+        {
+            targets : 6,
+            render: function (data, type, row, meta) {
+                return `<label class="form-check form-switch form-switch-2">
+                                <input class="form-check-input update-status" ${data == '1' ? 'checked' : ''} data-id="${row.id}" type="checkbox">
+                                <span class="form-check-label"></span>
+                        </label>`;
             }
         },
         {
@@ -49,4 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }).on('draw', function () {
         handleDeleteRows('member/delete-donor');
     });
+    $(document).on('change','.update-status',function(){
+        alert('OK')
+    })
 })

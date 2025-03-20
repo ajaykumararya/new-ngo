@@ -13,6 +13,8 @@
                             <th>Mobile</th>
                             <th>PAN</th>
                             <th>City</th>
+                            <th>Donate {inr}</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
