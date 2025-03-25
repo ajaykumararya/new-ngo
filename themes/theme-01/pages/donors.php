@@ -155,81 +155,85 @@
         background-color: #f4b932;
     }
 </Style>
-<div class="event-heading">
-    <h2><b>Donors</b></h2>
-    <div class="select">
-        <input type="text" id="search" class="form-control" placeholder="Search Here">
+
+<div class="container">
+    <div class="event-heading">
+        <h2><b>Donors</b></h2>
+        <div class="select">
+            <input type="text" id="search" class="form-control" placeholder="Search Here">
+        </div>
     </div>
-</div>
-<br>
-<div id="table-row">
-    <div class="container">
-        <div class="row">
-            <?php
-            $this->load->model('donor_model');
-            $get = $this->donor_model->list_front_donors();
-            if ($get->num_rows()) {
-                foreach ($get->result() as $row) {
-                    // pre($row);
-                    ?>
-                    <div class='column m-auto' style='gap:10px;'>
-                        <div class="card card_donor">
-                            <img src="{base_url}upload/<?= $row->image ?>" alt="profile_img">
-                            <h4><?=$row->name?></h4>
+    <br>
+    <div id="table-row">
+        <div class="container">
+            <div class="row">
+                <?php
+                $this->load->model('donor_model');
+                $get = $this->donor_model->list_front_donors();
+                if ($get->num_rows()) {
+                    foreach ($get->result() as $row) {
+                        // pre($row);
+                        ?>
+                        <div class='column m-auto' style='gap:10px;'>
+                            <div class="card card_donor">
+                                <img src="{base_url}upload/<?= $row->image ?>" alt="profile_img">
+                                <h4><?= $row->name ?></h4>
 
-                            <div class="details">
-                                <div class="column">
+                                <div class="details">
+                                    <div class="column">
 
-                                    <span>Amount</span>
+                                        <span>Amount</span>
+                                    </div>
+                                    <div class="column">
+                                        <span><?= $row->last_donate ?></span>
+                                    </div>
                                 </div>
-                                <div class="column">
-                                    <span><?=$row->last_donate?></span>
-                                </div>
-                            </div>
 
-                            <div class="details">
-                                <div class="column">
+                                <div class="details">
+                                    <div class="column">
 
-                                    <span>City</span>
+                                        <span>City</span>
+                                    </div>
+                                    <div class="column">
+                                        <span><?= $row->city ?></span>
+                                    </div>
                                 </div>
-                                <div class="column">
-                                    <span><?=$row->city?></span>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="column">
+                                <div class="details">
+                                    <div class="column">
 
-                                    <span>Mobile</span>
+                                        <span>Mobile</span>
+                                    </div>
+                                    <div class="column">
+                                        <span><?= $row->mobile ?></span>
+                                    </div>
                                 </div>
-                                <div class="column">
-                                    <span><?=$row->mobile?></span>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <div class="column">
+                                <div class="details">
+                                    <div class="column">
 
-                                    <span>Mode</span>
-                                </div>
-                                <div class="column">
-                                    <span><?=$row->mode?></span>
+                                        <span>Mode</span>
+                                    </div>
+                                    <div class="column">
+                                        <span><?= $row->mode ?></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <?php
+                        <?php
+                    }
                 }
-            }
-            // echo $this->db->last_query();
-            
-            ?>
+                // echo $this->db->last_query();
+                
+                ?>
 
 
 
+            </div>
+            <p id="noResults" style="display: none; color: red;font-size:26px">No results found</p>
         </div>
-        <p id="noResults" style="display: none; color: red;font-size:26px">No results found</p>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
 
