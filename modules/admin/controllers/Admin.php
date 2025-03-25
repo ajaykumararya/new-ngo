@@ -31,6 +31,7 @@ class Admin extends MY_Controller
     function donors_data()
     {
         $this->ki_theme->breadcrumb_action_html($this->ki_theme->outline_dashed_style('warning ')->add_action('<i class="fa fa-plus"></i> Add Donor', 'admin/add-donor'));
+        $this->ki_theme->breadcrumb_action_html($this->ki_theme->drawer_button('page', 'donors', humanize('Donors')));
         $this->view('donors/list');
     }
     function donor_receipt()

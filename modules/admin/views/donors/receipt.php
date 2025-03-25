@@ -16,7 +16,7 @@ if ($getDonor->num_rows()) {
     <div class="row">
         <div class="col-md-12">
             <form action="" id="add-donor-receipt">
-                <input type="hidden" name="token" value="<?=$this->token->encode(['donor_id'=>$row->id])?>">
+                <input type="hidden" name="token" value="<?= $this->token->encode(['donor_id' => $row->id]) ?>">
                 <div class="card mb-3 border-white">
                     <div class="card-header">
                         <h3 class="card-title">
@@ -27,7 +27,16 @@ if ($getDonor->num_rows()) {
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="" class="form-label required">Donation Amount</label>
-                                <input type="number" name="amount" placeholder="Enter Donation Amount" class="form-control">
+
+                                <div class="input-group mb-2">
+                                    <input  type="number" name="amount" class="form-control" placeholder="Enter Donation Amount" autocomplete="off">
+                                    <span class="input-group-text p-0">
+                                        <select name="mode" class="form-control" style="    width: 132px;">
+                                            <option value="Cash">Cash</option>
+                                            <option value="Online">Online</option>
+                                        </select>    
+                                    </span>
+                                </div>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="" class="form-label required">Donation Date</label>
@@ -47,15 +56,18 @@ if ($getDonor->num_rows()) {
                                                 <th colspan="2">Donor Details</th>
                                             </tr>
                                             <tr>
-                                                <th>Name</th><td><?=$row->name?></td>
+                                                <th>Name</th>
+                                                <td><?= $row->name ?></td>
                                             </tr>
-                                            
+
                                             <tr>
-                                                <th>Mobile</th><td><?=$row->mobile?></td>
+                                                <th>Mobile</th>
+                                                <td><?= $row->mobile ?></td>
                                             </tr>
-                                            
+
                                             <tr>
-                                                <th>Total Donate</th><td><?=$row->total_donate?> {inr}</td>
+                                                <th>Total Donate</th>
+                                                <td><?= $row->total_donate ?> {inr}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -98,13 +110,13 @@ if ($getDonor->num_rows()) {
                                 $i = 1;
                                 foreach ($list->result() as $rrow) {
                                     echo '<tr>
-                                        <td>'.$i++.'.</td>  
-                                        <td>'.$rrow->receipt_no.'</td>  
-                                        <td>'.$rrow->date.'</td>  
-                                        <td>'.$rrow->amount.' {inr}</td>  
+                                        <td>' . $i++ . '.</td>  
+                                        <td>' . $rrow->receipt_no . '</td>  
+                                        <td>' . $rrow->date . '</td>  
+                                        <td>' . $rrow->amount . ' {inr}</td>  
                                         <td>
                                             <button class="btn btn-info btn-xs"><i class="fa fa-print"></i> Print</button>
-                                            <button class="btn btn-danger btn-xs delete-receipt" data-id="'.$rrow->id.'"><i class="fa fa-trash"></i> Delete</button>
+                                            <button class="btn btn-danger btn-xs delete-receipt" data-id="' . $rrow->id . '"><i class="fa fa-trash"></i> Delete</button>
                                         </td>  
                                     </tr>';
                                 }
