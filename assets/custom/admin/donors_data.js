@@ -67,6 +67,13 @@ document.addEventListener('DOMContentLoaded', function () {
         handleDeleteRows('member/delete-donor');
     });
     $(document).on('change','.update-status',function(){
-        alert('OK')
+        // alert('OK')
+        var id = $(this).data('id');
+        var status = $(this).is(':checked') ? 1 : 0;
+        $.AryaAjax({
+            url : 'donor/donor_activer',
+            data : {id,status},
+            success_message : 'Status changed successfully..'
+        });
     })
 })

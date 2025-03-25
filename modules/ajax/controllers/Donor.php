@@ -6,6 +6,12 @@ class Donor extends Ajax_Controller
         parent::__construct();
         $this->load->model('donor_model');
     }
+    function donor_activer(){
+        $this->db->where('id',$this->post('id'))->update('donor',array(
+            'status' => $this->post('status')
+        ));
+        $this->response('status',true);
+    }
     function list()
     {
         $get = $this->donor_model->all();
