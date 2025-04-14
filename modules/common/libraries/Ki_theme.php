@@ -422,10 +422,10 @@ class Ki_theme
         $this->set_drawer_attr('schema-vars', $this->schema_vars());
         return $this;
     }
-    function drawer_button($type = '', $type_id = 0, $title = '')
+    function drawer_button($type = '', $type_id = 0, $title = '',$btnTitle = 'Set in Page')
     {
         $this->drawer_init();
-        $this->tag_html('Set in Page');
+        $this->tag_html($btnTitle);
         $schema = [];
         $get = $this->CI->SiteModel->getPageSchemaWithSelect(['event' => $type, 'event_id' => $type_id], 'event,event_id,page_id');
         if ($get->num_rows()) {

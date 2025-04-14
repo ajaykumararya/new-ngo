@@ -70,7 +70,8 @@ class Admin extends MY_Controller
     }
     function list_members()
     {
-        $this->ki_theme->breadcrumb_action_html($this->ki_theme->drawer_button('form', 'member_apply_form', humanize('Set Member Apply')));
+        $this->ki_theme->breadcrumb_action_html($this->ki_theme->drawer_button('form', 'member_apply_form', humanize('Set Member Apply Form'),'Membership Form'));
+        $this->ki_theme->breadcrumb_action_html($this->ki_theme->drawer_button('page', 'member_list', humanize('Set Member List Page')));
         $this->view('member/list-members');
     }
     function list_unverified_members()
