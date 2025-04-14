@@ -77,6 +77,7 @@ $config['cms_setting'] = array(
             'label' => 'Post Section',
             'type' => 'news_area',
             'icon' => array('sticky-note', 3),
+            'condition' => THEME  == 'theme-01',
             'submenu' => array(
                 array(
                     'label' => 'Add Post',
@@ -95,6 +96,7 @@ $config['cms_setting'] = array(
         array(
             'label' => 'Testimonial',
             'type' => 'testimonial',
+            'condition' => THEME  == 'theme-01',
             'icon' => array('quote-left', 3),
             'submenu' => array(
                 array(
