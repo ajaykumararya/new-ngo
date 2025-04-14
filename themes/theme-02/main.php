@@ -245,7 +245,7 @@
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-up-arrow"></span></div>
 
-    <script defer src="{theme_url}assets/js/jquery.js"></script>
+    <!-- <script defer src="{theme_url}assets/js/jquery.js"></script> -->
     <script defer src="{theme_url}assets/js/popper.min.js"></script>
     <script defer src="{theme_url}assets/js/bootstrap.min.js"></script>
     <script defer src="{theme_url}assets/js/jquery-ui.js"></script>
