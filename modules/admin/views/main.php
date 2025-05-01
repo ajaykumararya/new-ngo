@@ -21,6 +21,13 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
     <style>
+        .custom_setting_input {
+            font-size: 21px;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            width: 100%;
+        }
         @import url('https://rsms.me/inter/inter.css');
 
         :root {

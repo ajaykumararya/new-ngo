@@ -33,6 +33,12 @@ $menu = array(
             'type' => 'enquiry-page',
             'icon' => array('file', 4),
             'url' => 'cms/static-page/enquiry-page',
+        ),
+        array(
+            'label' => 'Download Or Notification(s)',
+            'type' => 'downloads',
+            'icon' => array('file', 4),
+            'url' => 'cms/static-page/downloads',
         )
     )
 );

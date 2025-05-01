@@ -545,8 +545,14 @@ $(document).ready(function () {
 
     const myDataTable = $('.my-data-table');
     if (myDataTable) {
+        const domLayout = myDataTable.data('bootstrap')
+                            ? `
+                            <'row'<'col-md-10'l><'col-md-2'f>>
+                            <'row'<'col-md-12'tr>>
+                            <'row'<'col-md-5'i><'col-md-7'p>>
+                        ` : small_dom;
         myDataTable.DataTable({
-            dom: small_dom,
+            dom: domLayout,
             "pagingType": "full_numbers",
             "language": {
                 "paginate": {

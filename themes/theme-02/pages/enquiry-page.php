@@ -19,23 +19,24 @@
 
         <div class="sec-title centered">
             <div class="upper-icon"></div>
-            <h2>Spread The Love & Get Involved!</h2>
-            <div class="text">Join Us To Save The World Of Humanitarian And Feel Happy To Support</div>
+            <h2><?= ES('enquiry_form_section_title') ?></h2>
+            <div class="text"><?= ES('enquiry_form_section_short_descrption') ?></div>
         </div>
         <div class="row clearfix">
-
             <!--Form Column--->
             <div class="form-column col-xl-7 col-lg-12 col-md-12 col-sm-12">
                 <div class="inner">
                     <div class="shape-box">
-                        <h3>Working Together To Make A Difference</h3>
+                        <h3>
+                            <?= ES('enquiry_form_title') ?>
+                        </h3>
                     </div>
                     <div class="default-form contact-form">
-                        <form method="post" action="https://adbhutfoundation.org/sendemail.php" id="contact-form">
+                        <form method="post" action="" id="contact-form">
                             <div class="row clearfix">
                                 <div class="col-md-6 col-sm-12 form-group">
                                     <div class="field-label">Your Name</div>
-                                    <input type="text" name="username" placeholder="" required="">
+                                    <input type="text" name="name" placeholder="" required="">
                                 </div>
 
                                 <div class="col-md-6 col-sm-12 form-group">
@@ -80,7 +81,8 @@
                     <div class="icon-2 paroller" data-paroller-factor="0.30" data-paroller-factor-lg="0.20"
                         data-paroller-factor-sm="0.10" data-paroller-type="foreground"
                         data-paroller-direction="vertical"></div>
-                    <figure class="image"><img src="images/resource/form-main.jpg" alt=""></figure>
+                    <figure class="image"><img src="<?= base_url('upload/' . ES('enquiry_form_left_image')) ?>" alt="">
+                    </figure>
                 </div>
             </div>
 

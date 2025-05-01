@@ -1,3 +1,8 @@
+<style>
+    :root{
+        --primary-color:#e41517
+    }
+</style>
 <!-- Stylesheets -->
 <link href="{theme_url}assets/css/bootstrap.css" rel="stylesheet">
 <link href="{theme_url}assets/css/style.css" rel="stylesheet">
@@ -12,3 +17,10 @@
     //     $("#dialog").dialog();
     // });
 </script>
+
+<style>
+    .theme-table thead{
+        background-color: var(--primary-color);
+        color:white
+    }
+</style>
