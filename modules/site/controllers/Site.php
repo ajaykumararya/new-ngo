@@ -65,7 +65,9 @@ class Site extends Site_Controller
                         }
                         break;
                     case 'form':
-                        if (!(CHECK_PERMISSION('CO_ORDINATE_SYSTEM') && $page->event_id == 'student_admission'))
+                        if (file_exists(DOCUMENT_PATH . '/forms/' . $page->event_id . '.php'))
+                            $html .= $this->parse('forms/' . $page->event_id, [], true);
+                        else
                             $html .= $this->parse('form/' . $page->event_id, [], true);
                         break;
                 }
@@ -97,15 +99,16 @@ class Site extends Site_Controller
             if ($get->num_rows()) {
                 $data = $get->row_array();
                 // pre($data,true);
-                $this->set_data('page_name','View Post');
-                $this->render('pages/view-post',$data);
+                $this->set_data('page_name', 'View Post');
+                $this->render('pages/view-post', $data);
             } else
                 $this->error_404();
         } else
             $this->error_404();
     }
 
-    function test(){
+    function test()
+    {
         $this->load->model('donor_model');
         echo $this->donor_model->all()->num_rows();
         echo $this->db->last_query();

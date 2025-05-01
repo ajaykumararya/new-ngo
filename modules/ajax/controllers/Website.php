@@ -10,9 +10,9 @@ class Website extends Ajax_Controller
     {
         if ($this->validation('membership_form')) {
             // $this->response('status','hii');
-            $profile_photo = $this->file_up('profile','');
-            $doc_file = $this->file_up('doc_file','');
-            $other_doc = $this->file_up('other_doc','');
+            $profile_photo = $this->file_up('profile', '');
+            $doc_file = $this->file_up('doc_file', '');
+            $other_doc = $this->file_up('other_doc', '');
             $data = [
                 'name' => $this->post('name'),
                 'father_name' => $this->post('father_name'),
@@ -37,6 +37,17 @@ class Website extends Ajax_Controller
             $this->response('status', true);
             $this->response('member_id', $this->db->insert_id());
         }
+    }
+    function custom_membership_form()
+    {
+
+        $data = $this->post();
+        $data['portal_logo'] = $this->file_up('portal_logo', '');
+
+        $this->db->insert('members', $data);
+        $this->response('status', true);
+        $this->response('member_id', $this->db->insert_id());
+
     }
     function upload_gallery_image()
     {

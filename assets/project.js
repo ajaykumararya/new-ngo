@@ -174,6 +174,26 @@ $(document).ready(function () {
             showResponseError(r);
         });
     })
+    $(document).on('submit','.custom-membership-form',function(e){
+        e.preventDefault();
+        $.AryaAjax({
+            url: 'website/custom-membership-form',
+            data: new FormData(this),
+        }).then((r) => {
+            log(r);
+            if (r.status) {
+                mySwal('Member added Successfully..', `
+                    Your member ID is <b>${r.member_id}</b>
+                `).then((res) => {
+                    if (res.isConfirmed) {
+                        location.reload();
+                        // location.href = base_url + 'student';
+                    }
+                });
+            }
+            showResponseError(r);
+        });
+    })
 
     $(document).on('submit', '.center-verification-form', function (r) {
         r.preventDefault();

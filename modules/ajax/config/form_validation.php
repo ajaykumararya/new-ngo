@@ -17,13 +17,13 @@ $config = array(
             'rules' => 'required'
         ),
         array(
-            'label' => 'Shop Name / Firm Name',
-            'field' => 'firm_name',
+            'label' => 'Father Name',
+            'field' => 'father_name',
             'rules' => 'required'
         ),
         array(
-            'label' => 'Father Name',
-            'field' => 'father_name',
+            'label' => 'Shop Name / Firm Name',
+            'field' => 'firm_name',
             'rules' => 'required'
         ),
         array(
