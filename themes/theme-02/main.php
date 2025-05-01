@@ -76,7 +76,7 @@
                     <!--Logo-->
                     <div class="logo pull-left">
                         <a href="{base_url}" title="">
-                            <img src="{base_url}upload/{logo}" alt="{title}"
+                            <img src="{base_url}upload/{logo}" alt="{title}" style="width:182px"
                                 title="{title}"></a>
                     </div>
                     <!--Right Col-->
