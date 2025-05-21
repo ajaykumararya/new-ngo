@@ -16,22 +16,66 @@ class Document extends MY_Controller
         $this->return = $return;
         return $this;
     }
-    function print_membership(){
+    function id_card()
+    {
         // echo $this->id;
-        $get = $this->member_model->get_verified_member(['id'=>$this->id]);
+        $get = $this->member_model->get_verified_member(['id' => $this->id]);
         if ($get->num_rows()) {
             // pre($get->row(), true);
             $this->set_data($get->row_array());
 
             $row = $get->row();
-            
+            // pre($row,true);
+            $pdfContent = $this->parse('id-card');
+            $this->pdf($pdfContent, $row->name . '-id-card.pdf');
+        } else {
+            $this->not_found("Id Card Not Found..");
+        }
+    }
+    function print_membership()
+    {
+        // echo $this->id;
+        $get = $this->member_model->get_verified_member(['id' => $this->id]);
+        if ($get->num_rows()) {
+            // pre($get->row(), true);
+            $this->set_data($get->row_array());
+
+            $row = $get->row();
+
             $pdfContent = $this->parse('membership');
-            if (in_array(PATH, ['vmbindia'])) {
-                $this->mypdf->addPage('L');
-            }
-            $this->pdf($pdfContent,  $row->name . '-membership.pdf');
+            $this->pdf($pdfContent, $row->name . '-membership.pdf');
         } else {
             $this->not_found("Member Not Found..");
+        }
+    }
+    function certificate()
+    {
+        $get = $this->member_model->get_verified_member(['id' => $this->id]);
+        if ($get->num_rows()) {
+            // pre($get->row(), true);
+            $this->set_data($get->row_array());
+
+            $row = $get->row();
+
+            $pdfContent = $this->parse('certificate');
+            $this->pdf($pdfContent, $row->name . '-certificate.pdf');
+        } else {
+            $this->not_found("Certificate is not found..");
+        }
+    }
+    function appoinment_letter()
+    {
+        $get = $this->member_model->get_verified_member(['id' => $this->id]);
+        if ($get->num_rows()) {
+            // pre($get->row(), true);
+            $this->set_data($get->row_array());
+
+            $row = $get->row();
+
+            $pdfContent = $this->parse('appoinment-letter');
+            $this->pdf($pdfContent, $row->name . '-appoinment-letter.pdf');
+        } else {
+            $this->not_found("Appoinment Letter is not found..");
         }
     }
     function pdf($pdfContent, $filename = 'my-pdf.pdf')

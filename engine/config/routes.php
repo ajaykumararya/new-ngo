@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,21 +49,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-if(!in_array(strtolower( $this->uri->segment(1,'a') ),[
-    'admin','login'
-]))
-$route['student'] = 'student/index';
+if (
+    !in_array(strtolower($this->uri->segment(1, 'a')), [
+        'admin',
+        'login'
+    ])
+)
+    $route['student'] = 'student/index';
 $route['admin'] = $route['Admin'] = 'admin/index';
 $route['admit-card/(:any)'] = 'document/admit_card';
+
 $route['print-membership/(:any)'] = 'document/print_membership/$1';
-$route['certificate/(:any)'] = 'document/certificate';
-$route['id-card/(:any)'] = 'document/id_card';
-$route['franchise-certificate/(:any)'] = 'document/franchise_certificate';
-$route['marksheet-verification/(:any)'] = 'site/marksheet_print/$1';
+
+$route['id-card/(:any)'] = 'document/id_card/$1';
+$route['certificate/(:any)'] = 'document/certificate/$1';
+$route['appoinment-letter/(:any)'] = 'document/appoinment_letter/$1';
+
+
 $route['view-post'] = 'site/view_post';
 $route['(:any)'] = 'site/index';
-$route['co-ordinate/(:any)'] = 'Coordinate/$1';
-$route['co-ordinate/(:any)/(:any)'] = 'Coordinate/$1/$2';
 
 $route['404_override'] = 'site/error_404';
 $route['translate_uri_dashes'] = TRUE;

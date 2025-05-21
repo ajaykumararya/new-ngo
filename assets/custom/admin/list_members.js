@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             targets: 1,
-            render: function (data, type, row, meta) {                
+            render: function (data, type, row, meta) {
                 return `<img src="${base_url}upload/${data}" width="50" height="50">`;
             }
         },
@@ -36,18 +36,16 @@ document.addEventListener('DOMContentLoaded', function () {
             orderable: false,
             searchable: false,
             render: function (data, type, row) {
-                return `
-                <div class="btn-group">
-                    <a href="${base_url}print-membership/${btoa(row.id)}" target="_blank" class="btn btn-xs btn-sm btn-primary">
+                /*
+                    <a href="${base_url}print-membership/${btoa(row.id)}" target="_blank" class="btn btn-primary">
                         <i class="fa fa-print"></i>
                     </a>
-                
-                    <a href="${base_url}admin/edit-member/${btoa(row.id)}" class="btn btn-xs btn-sm btn-info">
-                        <i class="fa fa-edit"></i> 
-                        Edit</a>
-
-                    ${deleteBtnRender(1, row.id)}
-                </div>
+                */
+                return `                   
+                    ${row.buttons}
+                    <a href="${base_url}admin/edit-member/${btoa(row.id)}" class="btn btn-info">
+                        <i class="fa fa-edit"></i> </a>
+                    <button class="btn btn-danger" data-message="" data-table-filter="delete_row" data-target="1" data-id="${row.id}"><i class="fa fa-trash"></i> </button>
                 `;
             }
         }]

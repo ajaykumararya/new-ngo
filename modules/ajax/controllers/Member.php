@@ -12,7 +12,29 @@ class Member extends Ajax_Controller
     }
     function get_verified_list()
     {
-        $this->response('data', $this->member_model->verified_list()->result_array());
+        $data = [];
+        foreach ($this->member_model->verified_list()->result_array() as $row) {
+            $row['buttons'] = '';
+            if (PATH == 'aiwnpc') {
+                $row['buttons'] = '
+                    <a title="Id Card" href="' . base_url('id-card/' . base64_encode($row['id'])) . '" target="_blank" class="btn btn-primary">
+                        <i class="fa fa-print"></i>
+                    </a>
+                    <a title="Certificate" href="' . base_url('certificate/' . base64_encode($row['id'])) . '" target="_blank" class="btn btn-info">
+                        <i class="fa fa-print"></i>
+                    </a>                    
+                    <a title="Appoinment Letter" href="' . base_url('appoinment-letter/' . base64_encode($row['id'])) . '" target="_blank" class="btn btn-warning">
+                        <i class="fa fa-print"></i>
+                    </a>
+                ';
+            } else {
+                $row['buttons'] = '<a href="${base_url}print-membership/' . base64_encode($row['id']) . '" target="_blank" class="btn btn-primary">
+                                        <i class="fa fa-print"></i>
+                                    </a>';
+            }
+            $data[] = $row;
+        }
+        $this->response('data', $data);
     }
     function delete_member($id)
     {
@@ -40,7 +62,7 @@ class Member extends Ajax_Controller
                 'name' => $this->post('name'),
                 'father_name' => $this->post('father_name'),
                 'gender' => $this->post('gender'),
-                'dob' => date('d-m-Y',strtotime($this->post('my_dob'))),
+                'dob' => date('d-m-Y', strtotime($this->post('my_dob'))),
                 'profession' => $this->post("profession"),
                 'blood_group' => $this->post('blood_group'),
                 'state_id' => $this->post('state_id'),

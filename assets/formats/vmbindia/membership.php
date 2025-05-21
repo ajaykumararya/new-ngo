@@ -56,7 +56,9 @@
         }
     </style>
 </head>
-
+<?php
+$this->mypdf->addPage('L');
+?>
 <body class="position-relative">
     <img id="back-image" class="position-relative" src="{document_path}/membership.jpg">
     <div class="position-absolute" id="photo">
